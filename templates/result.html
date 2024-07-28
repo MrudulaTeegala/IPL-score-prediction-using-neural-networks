@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h1>IPL Score Prediction</h1>
+        </div>
+        <div class="navbar">
+            <a href="/">Home</a>
+            <a href="/index">Predict Score</a>
+            <a href="/download">Downloads</a>
+        </div>
+    </div>
+    <div class="container1">
+        <h1>Predicted Score</h1>
+        <p>The predicted score is: {{ prediction }}</p>
+        <a href="{{ url_for('home') }}">Predict Again</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cricket Score Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h1>IPL Score Prediction</h1>
+        </div>
+        <div class="navbar">
+            <a href="/">Home</a>
+            <a href="/index">Predict Score</a>
+            <a href="/download">Downloads</a>
+        </div>
+    </div>
+    <div class="container">
+    <div class="left-pane">
+        <img src="{{ url_for('static', filename='two.png') }}" alt="Left Pane Image">
+    </div>
+    <div class="final">
+        <h1>Score Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label for="venue">Venue:</label>
+            <select name="venue" required>
+                {% for venue in venues %}
+                    <option value="{{ venue }}">{{ venue }}</option>
+                {% endfor %}
+            </select><br><br>
+            <label for="bat_team">Batting Team:</label>
+            <select name="bat_team" required>
+                {% for bat_team in bat_teams %}
+                    <option value="{{ bat_team }}">{{ bat_team }}</option>
+                {% endfor %}
+            </select><br><br>
+            <label for="bowl_team">Bowling Team:</label>
+            <select name="bowl_team" required>
+                {% for bowl_team in bowl_teams %}
+                    <option value="{{ bowl_team }}">{{ bowl_team }}</option>
+                {% endfor %}
+            </select><br><br>
+            <label for="batsman">Batsman:</label>
+            <select name="batsman" required>
+                {% for batsman in batsmen %}
+                    <option value="{{ batsman }}">{{ batsman }}</option>
+                {% endfor %}
+            </select><br><br>
+            <label for="bowler">Bowler:</label>
+            <select name="bowler" required>
+                {% for bowler in bowlers %}
+                    <option value="{{ bowler }}">{{ bowler }}</option>
+                {% endfor %}
+            </select><br><br>
+            <button type="submit">Predict Score</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
